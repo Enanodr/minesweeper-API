@@ -1,6 +1,6 @@
 config:
   dockerfile: .woloxci/Dockerfile
-  project_name: rails-bootstrap
+  project_name: minesweeper-API
 
 services:
   - postgres
@@ -21,7 +21,7 @@ steps:
   security:
     - bundle exec brakeman --exit-on-error
   metrics:
-    - ./metrics/metrics.sh rails-bootstrap rails-bootstrap master
+    - ./metrics/metrics.sh minesweeper-API minesweeper-API master
 
 environment:
   RAILS_ENV: test
