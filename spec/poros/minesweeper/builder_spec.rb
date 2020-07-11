@@ -8,15 +8,15 @@ describe Minesweeper::Builder do
 
       it 'sets its board with only one bomb' do
         subject.build
-        expect(subject.board.flatten.select { |cell| cell[:has_mine] }.count)
+        expect(subject.board.flatten.select { |cell| cell.has_mine? }.count)
           .to eq(1)
       end
 
       it "sets the bomb's cell mines_near to -1" do
         subject.build
         every_bomb_is_negative_one =
-          subject.board.flatten.select { |cell| cell[:has_mine] }
-                               .map { |cell| cell[:mines_near] }
+          subject.board.flatten.select { |cell| cell.has_mine? }
+                               .map { |cell| cell.mines_near }
                                .all? { |n| n==-1 }
           expect(every_bomb_is_negative_one).to be_truthy
       end
@@ -31,7 +31,7 @@ describe Minesweeper::Builder do
 
         it 'sets all no-bomb cells with 1 near_bomb' do
           mines_near_map =
-            subject.board.map { |row| row.map { |cell| cell[:mines_near] }}
+            subject.board.map { |row| row.map { |cell| cell.mines_near }}
 
           expect(mines_near_map)
             .to eq([
@@ -72,7 +72,7 @@ describe Minesweeper::Builder do
         before { subject.build }
 
         it 'sets a board with the correct amount of bombs' do
-          expect(subject.board.flatten.count { |cell| cell[:has_mine] })
+          expect(subject.board.flatten.count { |cell| cell.has_mine? })
             .to eq(amount_of_mines)
         end
       end
@@ -112,5 +112,5 @@ describe Minesweeper::Builder do
 end
 
 def mines_near_map(board)
-  board.map { |row| row.map { |cell| cell[:mines_near] }}
+  board.map { |row| row.map { |cell| cell.mines_near }}
 end
