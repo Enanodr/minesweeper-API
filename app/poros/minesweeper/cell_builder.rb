@@ -12,12 +12,12 @@ module Minesweeper
       Cell.new(value: @value, state: @state, mines_near: @mines_near)
     end
 
-    def has_mine?
+    def mine?
       @value == :mine
     end
 
     def increment_mines_count
-      @mines_near += 1 unless has_mine?
+      @mines_near += 1 unless mine?
     end
   end
 end

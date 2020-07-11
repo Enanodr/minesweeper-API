@@ -7,7 +7,7 @@ module Minesweeper
       @mines_near = mines_near
     end
 
-    def has_mine?
+    def mine?
       value == :mine
     end
   end
