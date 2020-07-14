@@ -78,6 +78,15 @@ describe Minesweeper::Builder do
         let(:rows) { 10 }
         let(:cols) { 7 }
         let(:amount_of_mines) { 15 }
+        let(:expected_mines_near_map) do
+          [[0, 0, 1, -1, 2, -1, 3, -1, 2, 0],
+           [0, 1, 3, 3, 3, 1, 3, -1, 4, 2],
+           [0, 1, -1, -1, 3, 1, 2, 3, -1, -1],
+           [0, 1, 3, -1, 3, -1, 2, 3, -1, 3],
+           [0, 1, 2, 2, 3, 2, 4, -1, 3, 1],
+           [0, 1, -1, 1, 1, -1, 3, -1, 2, 0],
+           [0, 1, 1, 1, 1, 1, 2, 1, 1, 0]]
+        end
 
         before do
           allow(builder)
@@ -89,13 +98,7 @@ describe Minesweeper::Builder do
 
         it 'sets all no-bomb cells with 1 near_bomb' do
           expect(mines_near_map(builder.board))
-            .to eq([[0, 0, 1, -1, 2, -1, 3, -1, 2, 0],
-                    [0, 1, 3, 3, 3, 1, 3, -1, 4, 2],
-                    [0, 1, -1, -1, 3, 1, 2, 3, -1, -1],
-                    [0, 1, 3, -1, 3, -1, 2, 3, -1, 3],
-                    [0, 1, 2, 2, 3, 2, 4, -1, 3, 1],
-                    [0, 1, -1, 1, 1, -1, 3, -1, 2, 0],
-                    [0, 1, 1, 1, 1, 1, 2, 1, 1, 0]])
+            .to eq(expected_mines_near_map)
         end
       end
     end

@@ -1,4 +1,4 @@
-RSpec.shared_context '4 x 4 Board with one mine in the corner',
+RSpec.shared_context 'with a 4 x 4 board with one mine in the corner',
                      shared_context: :metadata do
   let(:board) do
     [

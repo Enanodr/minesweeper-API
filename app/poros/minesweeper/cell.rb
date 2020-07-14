@@ -14,10 +14,6 @@ module Minesweeper
       @mines_near
     end
 
-    def mine?
-      value == :mine
-    end
-
     def hidden?
       @state == :hidden
     end
@@ -44,7 +40,7 @@ module Minesweeper
       return unless hidden?
 
       @state = :exposed
-      return unless mines_near == 0
+      return unless mines_near.zero?
 
       current_row = board.order_number_to_y(@order_number)
       current_col = board.order_number_to_x(@order_number)

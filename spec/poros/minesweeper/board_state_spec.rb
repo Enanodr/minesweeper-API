@@ -6,7 +6,7 @@ describe Minesweeper::BoardState do
   describe '#discover_cell' do
     subject(:board_state) { described_class.new(board) }
 
-    include_context '4 x 4 Board with one mine in the corner'
+    include_context 'with a 4 x 4 board with one mine in the corner'
 
     context 'when coordinates are valid' do
       context 'with with a near mine cell' do
