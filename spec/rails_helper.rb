@@ -32,6 +32,7 @@ RSpec.configure do |config|
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include Response::JSONParser, type: :controller
   config.order = 'random'
+  # config.shared_context_metadata_behavior = :apply_to_host_groups
 end
 
 ActiveRecord::Migration.maintain_test_schema!

@@ -11,6 +11,7 @@ module Minesweeper
       initialize_board
       set_cell_numbers
       build_definitive_cells
+      BoardState.new(@board)
     end
 
     private
@@ -65,7 +66,7 @@ module Minesweeper
       total_cells = (@cols * @rows)
       total_cells.times do |i|
         value = mine_locations.include?(i) ? :mine : :empty
-        @board[order_number_to_y(i)] << CellBuilder.new(value: value)
+        @board[order_number_to_y(i)] << CellBuilder.new(value: value, order_number: i)
       end
     end
 
