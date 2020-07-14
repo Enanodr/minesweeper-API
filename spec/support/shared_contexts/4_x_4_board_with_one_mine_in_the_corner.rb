@@ -1,5 +1,5 @@
-RSpec.shared_context "4 x 4 Board with one mine in the corner",
-  :shared_context => :metadata do
+RSpec.shared_context '4 x 4 Board with one mine in the corner',
+                     shared_context: :metadata do
   let(:board) do
     [
       [
@@ -25,7 +25,7 @@ RSpec.shared_context "4 x 4 Board with one mine in the corner",
         Minesweeper::Cell.new(order_number: 13, value: :empty, state: :hidden, mines_near: 0),
         Minesweeper::Cell.new(order_number: 14, value: :empty, state: :hidden, mines_near: 0),
         Minesweeper::Cell.new(order_number: 15, value: :empty, state: :hidden, mines_near: 0)
-      ],
+      ]
     ]
   end
 end

@@ -10,6 +10,7 @@ module Minesweeper
 
     def mines_near
       return -1 if mine?
+
       @mines_near
     end
 
@@ -23,6 +24,7 @@ module Minesweeper
 
     def to_status_sym
       return '-' if hidden?
+
       mine? ? 'M' : mines_near.to_s
     end
 
@@ -40,8 +42,10 @@ module Minesweeper
 
     def discover(board)
       return unless hidden?
+
       @state = :exposed
       return unless mines_near == 0
+
       current_row = board.order_number_to_y(@order_number)
       current_col = board.order_number_to_x(@order_number)
       board.discover_cell(current_col, current_row + 1)

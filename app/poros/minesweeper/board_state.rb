@@ -8,12 +8,13 @@ class Minesweeper::BoardState
 
   def discover_cell(x_coordinate, y_coordinate)
     return if coorinates_out_of_board_range?(x_coordinate, y_coordinate)
+
     @board[y_coordinate][x_coordinate].discover(self)
   end
 
   def serialize
     @board.map do |row|
-      row.map { |cell| cell.serialize }
+      row.map(&:serialize)
     end
   end
 
@@ -28,13 +29,13 @@ class Minesweeper::BoardState
 
   # For debugging
   def pretty_print
-    puts "======================"
+    puts '======================'
     @board.each do |row|
-      row_string = ""
+      row_string = ''
       row.each { |cell| row_string << cell.to_status_sym }
       puts row_string
     end
-    puts "======================"
+    puts '======================'
   end
 
   protected
