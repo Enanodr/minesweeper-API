@@ -5,11 +5,23 @@ class GamesController < ApplicationController
                                          create_params[:rows].to_i,
                                          create_params[:mines].to_i).build
     new_game.board = new_board_state.board
-    if new_game.save
-      render json: { game_id: new_game.id, board: new_game.board }
-    else
-      head :internal_server_error
-    end
+    internal_server_error unless new_game.save
+    render_game(new_game)
+  end
+
+  def show
+    saved_game = Game.find(show_params[:id])
+    render_game(saved_game)
+  end
+
+  private
+
+  def render_game(game)
+    render json: { game_id: game.id, board: game.board }
+  end
+
+  def show_params
+    params.permit(:id)
   end
 
   def create_params
