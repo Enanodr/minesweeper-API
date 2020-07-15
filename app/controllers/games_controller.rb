@@ -13,6 +13,7 @@ class GamesController < ApplicationController
   end
 
   def create_params
+    [:mines, :cols, :rows].each { |param| params.require(:game).require(param) }
     params.require(:game).permit(:mines, :cols, :rows)
   end
 end
