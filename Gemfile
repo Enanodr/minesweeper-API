@@ -17,7 +17,7 @@ gem 'omniauth'
 gem 'active_model_serializers', '~> 0.10'
 
 # Sidekiq
-gem 'sidekiq', '~> 6.0.2'
+gem 'sidekiq', '~> 6.2.1'
 gem 'sidekiq-failures'
 gem 'sidekiq_mailer'
 
