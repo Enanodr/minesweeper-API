@@ -89,7 +89,7 @@ GEM
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
     concurrent-ruby (1.1.6)
-    connection_pool (2.2.3)
+    connection_pool (2.2.5)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
     crass (1.0.6)
@@ -181,13 +181,11 @@ GEM
       nio4r (~> 2.0)
     pundit (2.1.0)
       activesupport (>= 3.0.0)
-    rack (2.2.2)
+    rack (2.2.3)
     rack-attack (6.3.1)
       rack (>= 1.0, < 3)
     rack-cors (1.0.6)
       rack (>= 1.6.0)
-    rack-protection (2.0.8.1)
-      rack
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
     rails (6.0.3.1)
@@ -221,7 +219,7 @@ GEM
     rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
-    redis (4.1.4)
+    redis (4.5.1)
     reek (6.0.1)
       kwalify (~> 0.7.0)
       parser (>= 2.5.0.0, < 2.8, != 2.5.1.1)
@@ -280,11 +278,10 @@ GEM
     sexp_processor (4.14.1)
     shoulda-matchers (4.3.0)
       activesupport (>= 4.2.0)
-    sidekiq (6.0.7)
+    sidekiq (6.4.0)
       connection_pool (>= 2.2.2)
       rack (~> 2.0)
-      rack-protection (>= 2.0.0)
-      redis (>= 4.1.0)
+      redis (>= 4.2.0)
     sidekiq-failures (1.0.0)
       sidekiq (>= 4.0.0)
     sidekiq_mailer (0.0.8)
@@ -370,7 +367,7 @@ DEPENDENCIES
   rubocop-rspec (~> 1.36.0)
   rubycritic
   shoulda-matchers
-  sidekiq (~> 6.0.2)
+  sidekiq (~> 6.4.0)
   sidekiq-failures
   sidekiq_mailer
   simplecov
